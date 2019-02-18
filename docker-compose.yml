@@ -1,19 +1,30 @@
-version: '3'
+version: '2.2'
 
 services:
   elasticsearch:
     image: stefanvangastel/es_ness
     environment:
       - cluster.name=docker-cluster
+      - network.host=0.0.0.0
       - bootstrap.memory_lock=true
+      - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    ports:
-      - "9200:9200"
+    networks:
+      - ness
+
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.6.0
+    image: docker.elastic.co/kibana/kibana:6.5.4
     ports:
       - "5601:5601"
+    networks:
+      - ness
+    depends_on:
+      - elasticsearch
+
+networks:
+  ness:
+    driver: bridge
