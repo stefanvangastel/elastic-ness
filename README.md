@@ -4,6 +4,12 @@ Logregel demo met verschillende datastructuren in 1 Elasticsearch index
 
 ## Elastic + Kibana starten
 
+Clone deze repo:
+
+```
+git clone https://github.com/stefanvangastel/elastic-ness
+```
+
 Gebruik de `docker-compose.yml` om de pre-filled Elastic met gekoppelde Kibana te starten op de locale poorten:
 
 ```
