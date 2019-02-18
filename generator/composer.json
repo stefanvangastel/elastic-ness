@@ -1,0 +1,6 @@
+{
+    "require": {
+        "elasticsearch/elasticsearch": "~6.0",
+        "fzaninotto/faker": "^1.8"
+    }
+}
